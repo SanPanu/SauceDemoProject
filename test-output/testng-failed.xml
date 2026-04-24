@@ -5,9 +5,9 @@
     <classes>
       <class name="tests.LoginTest">
         <methods>
+          <include name="loginWithLockedOutUser"/>
           <include name="setUp"/>
           <include name="tearDown"/>
-          <include name="loginWithInvalidCredentials"/>
         </methods>
       </class> <!-- tests.LoginTest -->
     </classes>
