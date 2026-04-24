@@ -1,5 +1,8 @@
 package tests;
 
+import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
+import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
 import org.testng.Assert;
@@ -16,6 +19,7 @@ public class InventryTest extends BaseTest
 	
 	LoginPage loginpage;
 	InventoryPage inventrypage;
+	
 	
 	@BeforeMethod
 	public void setUp()

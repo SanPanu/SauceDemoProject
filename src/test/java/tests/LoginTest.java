@@ -2,6 +2,8 @@ package tests;
 
 import org.testng.annotations.Test;
 import org.testng.AssertJUnit;
+import org.testng.annotations.Test;
+import org.testng.AssertJUnit;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -34,7 +36,7 @@ public class LoginTest extends BaseTest
 	{
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.login("locked_out_user","secret_sauce");
-		Assert.assertEquals(loginpage.errorMessage(), "Epic sadface: Sorry, this user has been locked out.");
+		AssertJUnit.assertEquals(loginpage.errorMessage(), "Epic sadface: Sorry, this user has been locked out.");
 	}
 
 	
