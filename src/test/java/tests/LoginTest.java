@@ -12,7 +12,7 @@ public class LoginTest extends BaseTest
 {
 	
 	@Test
-	public void loginTest()
+	public void loginWithValidCredentials()
 	{
 		LoginPage loginpage=new LoginPage(driver);
 		Assert.assertTrue(loginpage.isLoginPageLogoDisplayed(),"Login Page logo is not displayed.");
@@ -26,7 +26,15 @@ public class LoginTest extends BaseTest
 		LoginPage loginpage=new LoginPage(driver);
 		loginpage.login("WrongUser","WrongPassword");
 		Assert.assertTrue(loginpage.isErrormessageDisplayed(), "Error Message is not displayed for Invalid Credetials");
-		AssertJUnit.assertEquals(loginpage.errorMessage(), "Epic sadface: Username and password do not match any user in this service");
+		Assert.assertEquals(loginpage.errorMessage(), "Epic sadface: Username and password do not match any user in this service");
+	}
+	
+	@Test
+	public void loginWithLockedOutUser()
+	{
+		LoginPage loginpage=new LoginPage(driver);
+		loginpage.login("locked_out_user","secret_sauce");
+		Assert.assertEquals(loginpage.errorMessage(), "Epic sadface: Sorry, this user has been locked out.");
 	}
 
 	
