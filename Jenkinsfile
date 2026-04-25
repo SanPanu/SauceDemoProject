@@ -23,7 +23,7 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // ✅ No need for def mvnHome — tools block handles it
-                sh 'mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}'
+                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
             }
         }
 
