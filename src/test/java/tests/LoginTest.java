@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest
 	public void loginWithInvalidCredentials()
 	{
 		LoginPage loginpage=new LoginPage(driver);
-		loginpage.login("WrongUser","WrongPassword");
+		loginpage.login("user1","pass1");
 		Assert.assertTrue(loginpage.isErrormessageDisplayed(), "Error Message is not displayed for Invalid Credetials");
 		AssertJUnit.assertEquals(loginpage.errorMessage(), "Epic sadface: Username and password do not match any user in this service");
 	}
