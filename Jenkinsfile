@@ -26,8 +26,9 @@ pipeline {
 
         stage('Run Tests') {
     steps {
-        withEnv(["PATH+MAVEN=${tool 'Maven_3.9.9'}/bin"]) {
-            sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
+        script {
+            def mvnHome = tool 'Maven_3.9.9'
+            sh "${mvnHome}/bin/mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
         }
     }
 }
