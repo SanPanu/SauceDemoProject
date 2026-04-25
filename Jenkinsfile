@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven'
+        maven 'Maven_3.9'
         jdk 'JDK17'
     }
 
@@ -12,28 +12,26 @@ pipeline {
 
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Select browser')
-        choice(name: 'GROUP', choices: ['smoke', 'regression'], description: 'Select test group')
+        // GROUP parameter kept for future use — disabled for now
+        // choice(name: 'GROUP', choices: ['smoke', 'regression'], description: 'Select test group')
     }
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'qa',
-                    url: 'https://github.com/SanPanu/SauceDemoProject.git'
-            }
-        }
-
         stage('Run Tests') {
             steps {
-                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
+                // Groups disabled until @Test(groups) annotations are added
+                sh "mvn clean test -Dbrowser=${params.BROWSER}"
             }
         }
 
         stage('Publish Reports') {
             steps {
-                junit 'target/surefire-reports/*.xml'
-                archiveArtifacts artifacts: 'target/**', fingerprint: true
+                junit allowEmptyResults: true,
+                      testResults: 'target/surefire-reports/*.xml'
+                archiveArtifacts artifacts: 'target/**',
+                                 fingerprint: true,
+                                 allowEmptyArchive: true
             }
         }
     }
@@ -43,10 +41,10 @@ pipeline {
             echo 'Pipeline execution completed.'
         }
         success {
-            echo 'Build SUCCESS'
+            echo 'Build SUCCESS ✅'
         }
         failure {
-            echo 'Build FAILED'
+            echo 'Build FAILED ❌'
         }
     }
 }
