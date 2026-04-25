@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     tools {
-        maven 'Maven_3.9'
+        maven 'Maven_3.9'   // ← one name, used everywhere
         jdk 'JDK17'
     }
 
@@ -17,21 +17,15 @@ pipeline {
 
     stages {
 
-        stage('Checkout Code') {
-            steps {
-                git branch: 'qa',
-                    url: 'https://github.com/SanPanu/SauceDemoProject.git'
-            }
-        }
+        // ❌ REMOVE this stage — Jenkins already checks out automatically
+        // stage('Checkout Code') { ... }
 
         stage('Run Tests') {
-    steps {
-        script {
-            def mvnHome = tool 'Maven_3.9.9'
-            sh "${mvnHome}/bin/mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
+            steps {
+                // ✅ No need for def mvnHome — tools block handles it
+                sh 'mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}'
+            }
         }
-    }
-}
 
         stage('Publish Reports') {
             steps {
@@ -46,10 +40,10 @@ pipeline {
             echo 'Pipeline execution completed.'
         }
         success {
-            echo 'Build SUCCESS'
+            echo 'Build SUCCESS ✅'
         }
         failure {
-            echo 'Build FAILED'
+            echo 'Build FAILED ❌'
         }
     }
 }
