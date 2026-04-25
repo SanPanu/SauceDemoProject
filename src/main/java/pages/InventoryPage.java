@@ -87,5 +87,10 @@ public class InventoryPage extends BasePage
 		}
 		return false;
 	}
+	
+	public List<WebElement> dropdownContents()
+	{
+		return driver.findElements(DropDownOptions);
+	}
 
 }

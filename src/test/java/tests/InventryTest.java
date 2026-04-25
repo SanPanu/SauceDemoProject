@@ -5,6 +5,10 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
+import java.util.List;
+
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.AssertJUnit;
 import org.testng.annotations.BeforeMethod;
@@ -13,9 +17,12 @@ import org.testng.annotations.Test;
 import base.BaseTest;
 import pages.InventoryPage;
 import pages.LoginPage;
+import utils.ExcelUtil;
 
 public class InventryTest extends BaseTest
 {
+	
+
 	
 	LoginPage loginpage;
 	InventoryPage inventrypage;
@@ -53,6 +60,29 @@ public class InventryTest extends BaseTest
 		inventrypage.openHambergerMenu();
 		inventrypage.clickAllAboutLink();
 	}
+	@Test
+	public void testDropdownContent()
+	{
+		 ExcelUtil excel = new ExcelUtil("InventoryPageData");
+		 List<WebElement> dropdownValues = inventrypage.dropdownContents();
+		 
+		 int excelStartRow = 7; // FilterContents data starts at row 8
+		 
+		 for(int i=0;i<dropdownValues.size();i++)
+		 {
+			 String actual   = dropdownValues.get(i).getText().trim();
+			   String expected = excel.getCellData(excelStartRow+i, 1); //col 1 = Name(A to Z) etc.
+			 
+		        Assert.assertEquals(
+		        		actual,
+		                expected,
+		                "Mismatch in dropdown value at index: " + i
+		        );
+		 }
+		
+	}
+	
+	
 	
 
 }

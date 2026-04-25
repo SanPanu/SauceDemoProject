@@ -92,7 +92,7 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">4 methods,   4 passed</span>
+                    <span class="method-stats">1 method,   1 passed</span>
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,22 +103,7 @@
                     <div class="method-list-content passed suite-Default_suite">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.InventryTest" class="method navigator-link" hash-for-method="testAboutPageredirect">testAboutPageredirect</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.InventryTest" class="method navigator-link" hash-for-method="testClickOnAllItemsLink">testClickOnAllItemsLink</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.InventryTest" class="method navigator-link" hash-for-method="testIsHambergerMenuOpen">testIsHambergerMenuOpen</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="tests.InventryTest" class="method navigator-link" hash-for-method="testPresenceOfHamBurgerButton">testPresenceOfHamBurgerButton</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Default_suite" title="tests.InventryTest" class="method navigator-link" hash-for-method="testDropdownContent">testDropdownContent</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Default_suite -->
@@ -141,30 +126,9 @@
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="testAboutPageredirect">
-                  </a> <!-- testAboutPageredirect -->
-                  <span class="method-name">testAboutPageredirect</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testClickOnAllItemsLink">
-                  </a> <!-- testClickOnAllItemsLink -->
-                  <span class="method-name">testClickOnAllItemsLink</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testIsHambergerMenuOpen">
-                  </a> <!-- testIsHambergerMenuOpen -->
-                  <span class="method-name">testIsHambergerMenuOpen</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="testPresenceOfHamBurgerButton">
-                  </a> <!-- testPresenceOfHamBurgerButton -->
-                  <span class="method-name">testPresenceOfHamBurgerButton</span>
+                  <a name="testDropdownContent">
+                  </a> <!-- testDropdownContent -->
+                  <span class="method-name">testDropdownContent</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -172,7 +136,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">/private/var/folders/x_/zrwq44fd7270qymm_wz9d9vc0000gn/T/testng-eclipse--1467767953/testng-customsuite.xml</span>
+            <span class="header-content">/private/var/folders/x_/zrwq44fd7270qymm_wz9d9vc0000gn/T/testng-eclipse-492414159/testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -181,7 +145,11 @@
 &lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;tests.InventryTest&quot;/&gt;
+      &lt;class name=&quot;tests.InventryTest&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;testDropdownContent&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- tests.InventryTest --&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Default test --&gt;
 &lt;/suite&gt; &lt;!-- Default suite --&gt;
@@ -221,28 +189,16 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(4);
+data.addRows(1);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'testClickOnAllItemsLink')
+data.setCell(0, 1, 'testDropdownContent')
 data.setCell(0, 2, 'tests.InventryTest')
-data.setCell(0, 3, 635);
-data.setCell(1, 0, 1)
-data.setCell(1, 1, 'testAboutPageredirect')
-data.setCell(1, 2, 'tests.InventryTest')
-data.setCell(1, 3, 614);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'testPresenceOfHamBurgerButton')
-data.setCell(2, 2, 'tests.InventryTest')
-data.setCell(2, 3, 16);
-data.setCell(3, 0, 3)
-data.setCell(3, 1, 'testIsHambergerMenuOpen')
-data.setCell(3, 2, 'tests.InventryTest')
-data.setCell(3, 3, 10);
+data.setCell(0, 3, 419);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 1 seconds</span>
+              <span class="suite-total-time">Total running time: 419 ms</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -257,9 +213,22 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">4 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">tests.InventryTest</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">testAboutPageredirect</span>
+                <br/>
+                <span class="ignored-method-name">testIsHambergerMenuOpen</span>
+                <br/>
+                <span class="ignored-method-name">testPresenceOfHamBurgerButton</span>
+                <br/>
+                <span class="ignored-method-name">testClickOnAllItemsLink</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Default_suite" class="panel">
@@ -275,63 +244,15 @@ return data;
               </div> <!-- configuration-method before -->
               <div class="configuration-method before">
                 <span class="method-name">setUp</span>
-                <span class="method-start">3682 ms</span>
+                <span class="method-start">2099 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
-                <span class="method-name">testAboutPageredirect</span>
-                <span class="method-start">3837 ms</span>
+                <span class="method-name">testDropdownContent</span>
+                <span class="method-start">2254 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">tearDown</span>
-                <span class="method-start">4452 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">4541 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">6333 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">testClickOnAllItemsLink</span>
-                <span class="method-start">6471 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">7107 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">7195 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">8734 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">testIsHambergerMenuOpen</span>
-                <span class="method-start">8879 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">8890 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp(chrome, false)</span>
-                <span class="method-start">8976 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="configuration-method before">
-                <span class="method-name">setUp</span>
-                <span class="method-start">10303 ms</span>
-              </div> <!-- configuration-method before -->
-              <div class="test-method">
-                <span class="method-name">testPresenceOfHamBurgerButton</span>
-                <span class="method-start">10446 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">tearDown</span>
-                <span class="method-start">10463 ms</span>
+                <span class="method-start">2674 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
