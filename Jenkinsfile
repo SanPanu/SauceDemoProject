@@ -25,10 +25,12 @@ pipeline {
         }
 
         stage('Run Tests') {
-            steps {
-                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
-            }
+    steps {
+        withEnv(["PATH+MAVEN=${tool 'Maven_3.9.9'}/bin"]) {
+            sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
         }
+    }
+}
 
         stage('Publish Reports') {
             steps {
