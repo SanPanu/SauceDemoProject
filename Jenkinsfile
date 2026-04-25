@@ -12,7 +12,8 @@ pipeline {
 
     parameters {
         choice(name: 'BROWSER', choices: ['chrome', 'edge'], description: 'Select browser')
-        choice(name: 'GROUP', choices: ['smoke', 'regression'], description: 'Select test group')
+        // GROUP parameter kept for future use — disabled for now
+       // choice(name: 'GROUP', choices: ['smoke', 'regression'], description: 'Select test group')
     }
 
     stages {
@@ -23,7 +24,10 @@ pipeline {
         stage('Run Tests') {
             steps {
                 // ✅ No need for def mvnHome — tools block handles it
-                sh "mvn clean test -Dbrowser=${params.BROWSER} -Dgroups=${params.GROUP}"
+                //-Dgroups=${params.GROUP}"
+                 // Groups disabled until @Test(groups) annotations are added
+                
+                sh "mvn clean test -Dbrowser=${params.BROWSER} 
             }
         }
 
