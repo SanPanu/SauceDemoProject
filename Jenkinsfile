@@ -36,9 +36,10 @@ pipeline {
         }
     }
 
+    
+
     post {
-    always {
-        publishHTML(target: [
+        always {publishHTML(target: [
             reportDir: 'reports',
             reportFiles: 'extent-report.html',
             reportName: 'Extent Report',
@@ -46,12 +47,6 @@ pipeline {
             alwaysLinkToLastBuild: true,
             allowMissing: false
         ])
-    }
-}
-
-    post {
-        always {
-            echo 'Pipeline execution completed.'
         }
         success {
             echo 'Build SUCCESS ✅'
