@@ -20,6 +20,7 @@ import base.BaseTest;
 import pages.InventoryPage;
 import pages.LoginPage;
 import utils.ExcelUtil;
+import utils.ExtentTestManager;
 
 public class InventryTest extends BaseTest
 {
@@ -40,13 +41,13 @@ public class InventryTest extends BaseTest
 	@Test
 	public void testPresenceOfHamBurgerButton()
 	{
-		
+		ExtentTestManager.getTest().info("HamBurger Menu is not present");
 		Assert.assertTrue(inventrypage.presenceOfHamBurgerButton(), "HamBurger Menu is not present");
 	}
 	@Test
 	public void testIsHambergerMenuOpen()
 	{
-		
+		ExtentTestManager.getTest().info("HamBurger Menu is not Open");
 		Assert.assertTrue(inventrypage.isHambergerMenuOpen(), "HamBurger Menu is not Open");
 	}
 	@Test
@@ -58,6 +59,7 @@ public class InventryTest extends BaseTest
 	@Test
 	public void testAboutPageredirect()
 	{
+		ExtentTestManager.getTest().info("Opened Hamberger Menu and Clicked on All About Link");
 		inventrypage.openHambergerMenu();
 		inventrypage.clickAllAboutLink();
 	}
@@ -68,7 +70,7 @@ public class InventryTest extends BaseTest
 		 List<WebElement> dropdownValues = inventrypage.dropdownContents();
 		 
 		 int excelStartRow = 7; // FilterContents data starts at row 8
-		 
+		 ExtentTestManager.getTest().info("Reading DropeDown values from Excel sheet and Found Correctly");
 		 for(int i=0;i<dropdownValues.size();i++)
 		 {
 			 String actual   = dropdownValues.get(i).getText().trim();
@@ -90,7 +92,7 @@ public class InventryTest extends BaseTest
 		ArrayList<String>expected=new ArrayList<>(actual);
 		
 		Collections.sort(expected);
-		
+		ExtentTestManager.getTest().info("Verifying products sort Z->A correctly ");
 		Assert.assertEquals(actual, expected,"Products are not sorted correctly at index");
 	}
 	@Test(description="Verify products sort Z->A correctly")
@@ -105,6 +107,7 @@ public class InventryTest extends BaseTest
 		Collections.sort(expectedList,Collections.reverseOrder());
 	
 		Assert.assertEquals(AfterFilter, expectedList);
+		ExtentTestManager.getTest().info("Verifed products sort Z->A correctly ");
 	
 	}
 	
