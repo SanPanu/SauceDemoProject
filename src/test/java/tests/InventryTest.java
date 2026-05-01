@@ -5,6 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.AssertJUnit;
 import static org.testng.Assert.assertEquals;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.poi.xssf.usermodel.XSSFSheet;
@@ -21,19 +23,18 @@ import utils.ExcelUtil;
 
 public class InventryTest extends BaseTest
 {
-	
-
-	
 	LoginPage loginpage;
 	InventoryPage inventrypage;
 	
 	
-	@BeforeMethod
-	public void setUp()
+	@BeforeMethod(alwaysRun = true)
+	public void PagesetUp()
 	{
 		loginpage=new LoginPage(driver);
 	    inventrypage=new InventoryPage(driver);
-		loginpage.login("standard_user","secret_sauce");
+
+	    loginpage.login("standard_user", "secret_sauce");
+	 
 	}
 	
 	@Test
@@ -81,6 +82,34 @@ public class InventryTest extends BaseTest
 		 }
 		
 	}
+	
+	@Test(description = "Verify products sort A→Z correctly")
+	public void testSortByNameAscending() 
+	{
+		List<String> actual = inventrypage.getProductNames();
+		ArrayList<String>expected=new ArrayList<>(actual);
+		
+		Collections.sort(expected);
+		
+		Assert.assertEquals(actual, expected,"Products are not sorted correctly at index");
+	}
+	@Test(description="Verify products sort Z->A correctly")
+	public void testSortByNamesDesscending()
+	{
+		List<String> beforeFilter = inventrypage.getProductNames();
+		inventrypage.selectSortingOption("Name (Z to A)");
+		List<String> AfterFilter = inventrypage.getProductNames();
+		
+		List<String> expectedList=new ArrayList<>(beforeFilter);
+		
+		Collections.sort(expectedList,Collections.reverseOrder());
+	
+		Assert.assertEquals(AfterFilter, expectedList);
+	
+	}
+	
+	
+	
 	
 	
 	

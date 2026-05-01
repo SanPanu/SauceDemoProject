@@ -3,6 +3,7 @@ package base;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.*;
 
+import pages.LoginPage;
 import utils.ConfigReader;
 import utils.DriverFactory;
 
@@ -23,12 +24,11 @@ public class BaseTest
 		
 	}
 	
-	@AfterMethod
-    public void tearDown() {
-
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+	
+	 @AfterMethod
+	    public void tearDown() {
+	        DriverFactory.quitDriver();
+	    }
+    
 
 }

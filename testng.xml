@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Suite">
-  <test thread-count="5" name="Test">
+<suite name="Suite" parallel="methods" thread-count="3">
+
+  <test name="LoginTests">
     <classes>
-      <class name="tests.InventryTest"/>
       <class name="tests.LoginTest"/>
     </classes>
-  </test> <!-- Test -->
-</suite> <!-- Suite -->
+  </test>
+
+  <test name="InventoryTests">
+    <classes>
+      <class name="tests.InventryTest"/>
+    </classes>
+  </test>
+
+</suite>

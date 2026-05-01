@@ -1,10 +1,13 @@
 package pages;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 
 import base.BasePage;
 
@@ -29,6 +32,34 @@ public class InventoryPage extends BasePage
 	private By invetryPriceBar=By.xpath("//div[@class='inventory_item_price']");
 	private By inventrycartButton=By.xpath("//div[@class='inventory_item_description']//button");
 	private By cartItemName=By.xpath("//div[@class='cart_item']//a");
+	
+	
+	
+	public List<String> getProductNames()
+	{
+		List<WebElement> elements = driver.findElements(invenryLabel);
+		
+		ArrayList<String> names=new ArrayList<>();
+		
+		for(WebElement e:elements)
+		{
+			names.add(e.getText().trim());
+		}
+		return names;
+		
+	}
+	
+	
+	
+	
+	
+	public void selectSortingOption(String option)
+	{
+		Select dropdown= new Select(driver.findElement(slectDropdown));
+		dropdown.selectByVisibleText(option);
+		wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(invenryLabel));
+		
+	}
 	
 	public boolean presenceOfHamBurgerButton()
 	{

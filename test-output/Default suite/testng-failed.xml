@@ -8,7 +8,7 @@
           <include name="setUp"/>
           <include name="tearDown"/>
           <include name="setUp"/>
-          <include name="testDropdownContent"/>
+          <include name="testSortByNamesDesscending"/>
         </methods>
       </class> <!-- tests.InventryTest -->
     </classes>
