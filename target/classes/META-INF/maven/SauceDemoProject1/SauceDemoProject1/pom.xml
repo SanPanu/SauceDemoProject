@@ -49,6 +49,7 @@
             <artifactId>extentreports</artifactId>
             <version>${extentreports.version}</version>
         </dependency>
+       
 
         <!-- Log4j2 -->
         <dependency>

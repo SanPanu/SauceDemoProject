@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite thread-count="3" parallel="methods" name="Failed suite [Suite]" guice-stage="DEVELOPMENT">
+  <test thread-count="3" parallel="methods" name="LoginTests(failed)">
+    <classes>
+      <class name="tests.LoginTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="loginWithLockedOutUser"/>
+          <include name="tearDown"/>
+          <include name="loginWithValidCredentials"/>
+          <include name="loginWithInvalidCredentials"/>
+        </methods>
+      </class> <!-- tests.LoginTest -->
+    </classes>
+  </test> <!-- LoginTests(failed) -->
+  <test thread-count="3" parallel="methods" name="InventoryTests(failed)">
+    <classes>
+      <class name="tests.InventryTest">
+        <methods>
+          <include name="setUp"/>
+          <include name="testClickOnAllItemsLink"/>
+          <include name="tearDown"/>
+          <include name="PagesetUp"/>
+          <include name="testAboutPageredirect"/>
+        </methods>
+      </class> <!-- tests.InventryTest -->
+    </classes>
+  </test> <!-- InventoryTests(failed) -->
+</suite> <!-- Failed suite [Suite] -->
